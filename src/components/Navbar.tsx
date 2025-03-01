@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <Stethoscope className="h-8 w-8 mr-2" />
-              <span className="font-bold text-xl">MedInventory</span>
+              <span className="font-bold text-xl">Medin</span>
             </Link>
           </div>
           
