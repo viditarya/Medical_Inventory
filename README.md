@@ -8,17 +8,79 @@ A modern web-based inventory management system with predictive analytics and reg
 medismart/
 ├── client/          # React Frontend
 └── server/          # FastAPI Backend
+    ├── src/
+    │   ├── __init__.py
+    │   ├── main.py
+    │   ├── auth.py
+    │   ├── models.py
+    │   ├── schemas.py
+    │   └── database.py
+    ├── alembic/      # Database migrations
+    ├── tests/        # Test files
+    ├── requirements.txt
+    └── .env
 ```
 
 ## Prerequisites
 
 - Node.js (^18.0.0 || >=20.0.0)
 - Python 3.8+
-- PostgreSQL
+- PostgreSQL 14+
 
 ## Quick Start
 
-### Frontend
+### Database Setup
+
+1. Install PostgreSQL and ensure it's running
+2. Create a new database:
+```sql
+CREATE DATABASE medismart;
+```
+
+### Backend Setup
+
+1. Navigate to server directory:
+```bash
+cd server
+```
+
+2. Create and activate virtual environment:
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# Linux/MacOS
+python3 -m venv venv
+source venv/bin/activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Create `.env` file:
+```env
+# Database Configuration
+DATABASE_URL=postgresql://postgres:your_password@localhost:5432/medismart
+
+# JWT Configuration
+SECRET_KEY=your-generated-secret-key-here
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+# Server Configuration
+DEBUG=True
+ALLOWED_ORIGINS=http://localhost:5173
+```
+
+5. Run the server:
+```bash
+python -m uvicorn src.main:app --reload
+```
+
+### Frontend Setup
 
 ```bash
 cd client
@@ -26,34 +88,37 @@ npm install
 npm run dev
 ```
 
-### Backend
-
-```bash
-cd server
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-python -m uvicorn src.app:app --reload
-```
-
-### Database
-
-Make sure PostgreSQL is running and create a database named 'medismart':
-
-```sql
-CREATE DATABASE medismart;
-```
-
-## Environment Setup
-
-1. Copy `.env.example` to `.env` in both client and server directories
-2. Update the environment variables with your configuration
-
 ## Development
 
-- Frontend runs on: http://localhost:5173
-- Backend runs on: http://localhost:8000
-- API docs available at: http://localhost:8000/docs
+- Frontend: http://localhost:5173
+- Backend: http://localhost:8000
+- API Documentation: http://localhost:8000/docs
+- Admin Interface: http://localhost:8000/admin
+
+## API Endpoints
+
+### Authentication
+- POST /api/auth/login - User login
+- POST /api/auth/register - User registration
+
+### Users
+- GET /api/users/me - Get current user
+- PUT /api/users/me - Update current user
+- GET /api/users/ - List all users (Admin only)
+
+### Medicines
+- GET /api/medicines/ - List all medicines
+- POST /api/medicines/ - Create new medicine
+- GET /api/medicines/{id} - Get medicine details
+- PUT /api/medicines/{id} - Update medicine
+- DELETE /api/medicines/{id} - Delete medicine
+
+### Batches
+- GET /api/batches/ - List all batches
+- POST /api/batches/ - Create new batch
+- GET /api/batches/{id} - Get batch details
+- PUT /api/batches/{id} - Update batch
+- DELETE /api/batches/{id} - Delete batch
 
 ## Features
 
@@ -62,10 +127,11 @@ CREATE DATABASE medismart;
 - 📈 Predictive analysis for inventory demands
 - 🏥 Medicine batch management with expiry tracking
 - 📱 Responsive design with modern UI
-- 🔍 QR code support for batch tracking
+- �� QR code support for batch tracking
 
 ## Tech Stack
 
+### Frontend
 - React 18
 - TypeScript
 - Tailwind CSS
@@ -75,6 +141,14 @@ CREATE DATABASE medismart;
 - Lucide React (for icons)
 - Axios (for API calls)
 
+### Backend
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- Pydantic
+- JWT Authentication
+- Alembic (migrations)
+
 ## Contributing
 
 1. Fork the repository
@@ -82,4 +156,8 @@ CREATE DATABASE medismart;
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details
 
