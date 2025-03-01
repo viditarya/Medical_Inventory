@@ -1,6 +1,59 @@
 # MediSmart - Medicine Inventory Management System
 
-A modern web-based inventory management system built with React, TypeScript, and Tailwind CSS. MediSmart helps healthcare facilities manage their medicine inventory efficiently with role-based access control and predictive analytics.
+A modern web-based inventory management system with predictive analytics and regional inventory management.
+
+## Project Structure
+
+```
+medismart/
+├── client/          # React Frontend
+└── server/          # FastAPI Backend
+```
+
+## Prerequisites
+
+- Node.js (^18.0.0 || >=20.0.0)
+- Python 3.8+
+- PostgreSQL
+
+## Quick Start
+
+### Frontend
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+### Backend
+
+```bash
+cd server
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python -m uvicorn src.app:app --reload
+```
+
+### Database
+
+Make sure PostgreSQL is running and create a database named 'medismart':
+
+```sql
+CREATE DATABASE medismart;
+```
+
+## Environment Setup
+
+1. Copy `.env.example` to `.env` in both client and server directories
+2. Update the environment variables with your configuration
+
+## Development
+
+- Frontend runs on: http://localhost:5173
+- Backend runs on: http://localhost:8000
+- API docs available at: http://localhost:8000/docs
 
 ## Features
 
@@ -21,68 +74,6 @@ A modern web-based inventory management system built with React, TypeScript, and
 - Recharts (for analytics)
 - Lucide React (for icons)
 - Axios (for API calls)
-
-## Prerequisites
-
-- Node.js (^18.0.0 || >=20.0.0)
-- npm or yarn
-
-## Installation
-
-1. Clone the repository:
-```bash
-git clone [your-repository-url]
-cd medismart-inventory-system
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-## Available Scripts
-
-- `npm run dev` - Starts development server
-- `npm run build` - Builds the app for production
-- `npm run lint` - Runs ESLint
-- `npm run preview` - Preview production build locally
-
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── admin/         # Admin-specific components
-│   ├── manager/       # Inventory manager components
-│   ├── cashier/       # Cashier components
-│   └── common/        # Shared components
-├── utils/             # Helper functions and utilities
-├── types.ts           # TypeScript interfaces
-├── App.tsx           # Main application component
-└── main.tsx          # Application entry point
-```
-
-## User Roles
-
-### Admin
-- Full system access
-- User management
-- Analytics dashboard
-- Inventory management
-
-### Inventory Manager
-- Inventory monitoring
-- Stock predictions
-- Batch management
-
-### Cashier
-- Stock updates
-- Basic inventory operations
 
 ## Contributing
 
