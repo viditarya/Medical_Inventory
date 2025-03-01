@@ -49,31 +49,91 @@ def generate_usage_history(medicine_id, start_date, end_date, base_demand,
     dates = pd.date_range(start_date, end_date)
     usage = []
     
+    # Enhanced trend and seasonality parameters
     trend_factor = 1.0
-    trend_increase = 0.0001  # Reduced trend increase
+    trend_increase = 0.00005  # Reduced for more stability
     
+    # Add realistic weekly patterns
+    weekly_pattern = {
+        0: 1.2,    # Monday: Highest (people stock up)
+        1: 1.1,    # Tuesday
+        2: 1.0,    # Wednesday
+        3: 1.0,    # Thursday
+        4: 1.1,    # Friday: Slight increase before weekend
+        5: 0.85,   # Saturday: Reduced
+        6: 0.75    # Sunday: Lowest
+    }
+    
+    # Simulate temperature effects (seasonal)
+    def get_temperature_effect(date):
+        # Simulate temperature variation through the year
+        day_of_year = date.dayofyear
+        temp_effect = np.sin(2 * np.pi * day_of_year / 365)
+        return 1 + (temp_effect * 0.1)  # ±10% effect
+
     for date in dates:
-        # Reduced random variation
-        demand = base_demand * (1 + np.random.normal(0, 0.1))
+        # Base demand with reduced random variation
+        demand = base_demand * (1 + np.random.normal(0, 0.05))  # Reduced from 0.1 to 0.05
         
+        # Apply weekly pattern
+        demand *= weekly_pattern[date.dayofweek]
+        
+        # Apply temperature effect
+        demand *= get_temperature_effect(date)
+        
+        # Apply seasonal factor with smooth transitions
         month = date.month
-        demand *= seasonal_factor[month-1]
+        if month > 1:
+            # Smooth transition between months
+            prev_factor = seasonal_factor[month-2]
+            curr_factor = seasonal_factor[month-1]
+            day_weight = date.day / date.days_in_month
+            smooth_factor = prev_factor * (1-day_weight) + curr_factor * day_weight
+            demand *= smooth_factor
+        else:
+            demand *= seasonal_factor[month-1]
         
+        # Apply trend with reduced volatility
         trend_factor += trend_increase
         demand *= trend_factor
         
-        # Reduced pandemic effects
+        # Gradual pandemic effects with ramp-up and cool-down
         for pandemic_start, pandemic_end, multiplier in pandemic_periods:
             if pandemic_start <= date <= pandemic_end:
-                demand *= min(multiplier, 2.0)
+                days_into_pandemic = (date - pandemic_start).days
+                total_pandemic_days = (pandemic_end - pandemic_start).days
+                ramp_up_days = min(14, total_pandemic_days // 4)
+                cool_down_days = min(14, total_pandemic_days // 4)
+                
+                if days_into_pandemic <= ramp_up_days:
+                    # Ramp up period
+                    effect = 1 + (multiplier - 1) * (days_into_pandemic / ramp_up_days)
+                elif (pandemic_end - date).days <= cool_down_days:
+                    # Cool down period
+                    days_to_end = (pandemic_end - date).days
+                    effect = 1 + (multiplier - 1) * (days_to_end / cool_down_days)
+                else:
+                    # Full effect period
+                    effect = multiplier
+                
+                demand *= min(effect, 2.0)  # Cap at 2x
         
-        # Reduced special event effects
+        # More realistic special event effects with pre and post event impact
         for event_date, event_multiplier in special_events:
-            if abs((date - event_date).days) <= 3:
-                demand *= min(event_multiplier, 1.3)
+            days_diff = abs((date - event_date).days)
+            if days_diff <= 5:  # Extended from 3 to 5 days
+                # Pre-event build-up and post-event cool-down
+                if days_diff == 0:
+                    # Peak effect on event day
+                    effect = event_multiplier
+                else:
+                    # Gradual effect around events
+                    effect = 1 + (event_multiplier - 1) * (1 - days_diff/5)
+                demand *= min(effect, 1.3)  # Cap at 1.3x
         
-        if date.dayofweek in [5, 6]:
-            demand *= 0.9
+        # Add small random noise for day-to-day variation
+        daily_noise = 1 + np.random.normal(0, 0.02)  # ±2% daily variation
+        demand *= daily_noise
         
         usage.append({
             'medicine_id': medicine_id,
@@ -107,33 +167,39 @@ def clean_database(conn, cur):
     conn.commit()
 
 def main():
-    # Configuration with extended historical data for better Prophet training
-    start_date = datetime(2020, 1, 1)  # 3+ years of historical data
+    # Configuration with extended historical data
+    start_date = datetime(2020, 1, 1)
     end_date = datetime(2023, 12, 31)
     
     regions = {
         'delhi': {
             'medicines': [
-                (1, 'Paracetamol', 'Pain Relief', 'tablets', 100),  # Last number is base demand
+                (1, 'Paracetamol', 'Pain Relief', 'tablets', 100),
                 (2, 'Ibuprofen', 'Anti-inflammatory', 'tablets', 80),
                 (3, 'Amoxicillin', 'Antibiotic', 'tablets', 60),
                 (4, 'Cetirizine', 'Antihistamine', 'tablets', 40),
                 (5, 'Salbutamol', 'Bronchodilator', 'puffs', 30)
             ],
             'pandemic_periods': [
-                (datetime(2020, 3, 15), datetime(2020, 7, 31), 2.0),
-                (datetime(2021, 4, 1), datetime(2021, 6, 30), 1.8),
-                (datetime(2023, 1, 1), datetime(2023, 3, 31), 1.5)
+                (datetime(2020, 3, 15), datetime(2020, 7, 31), 1.8),  # Reduced from 2.0
+                (datetime(2021, 4, 1), datetime(2021, 6, 30), 1.6),   # Reduced from 1.8
+                (datetime(2023, 1, 1), datetime(2023, 3, 31), 1.4)    # Reduced from 1.5
             ],
             'seasonal_factors': {
-                'Cetirizine': [1.2, 1.4, 1.5, 1.5, 1.4, 1.1, 1.0, 1.0, 1.1, 1.2, 1.2, 1.2],
+                'Cetirizine': [1.2, 1.4, 1.6, 1.7, 1.5, 1.2, 1.0, 1.0, 1.2, 1.3, 1.2, 1.2],  # More pronounced
+                'Paracetamol': [1.2, 1.1, 1.0, 0.9, 0.9, 1.0, 1.1, 1.2, 1.1, 1.0, 1.1, 1.2],  # Winter increase
                 'default': [1.0, 1.0, 1.1, 1.1, 1.0, 0.9, 0.9, 1.0, 1.1, 1.1, 1.0, 1.0]
             },
             'special_events': [
-                (datetime(2020, 10, 25), 1.3),
+                # More granular Diwali effects
+                (datetime(2020, 10, 24), 1.2),  # Pre-Diwali
+                (datetime(2020, 10, 25), 1.3),  # Diwali
+                (datetime(2020, 10, 26), 1.2),  # Post-Diwali
+                # Add similar patterns for other years
+                (datetime(2021, 11, 3), 1.2),
                 (datetime(2021, 11, 4), 1.3),
-                (datetime(2022, 10, 24), 1.3),
-                (datetime(2023, 11, 12), 1.3)
+                (datetime(2021, 11, 5), 1.2),
+                # Add more festival dates with similar patterns
             ]
         },
         'kolkata': {
