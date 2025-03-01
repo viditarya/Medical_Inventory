@@ -1,0 +1,1409 @@
+[
+  {
+    "batch_id": 1,
+    "medicine_id": 1,
+    "quantity": 202,
+    "expiry_date": "2025-10-13",
+    "qr_code": "QR-0001-1"
+  },
+  {
+    "batch_id": 2,
+    "medicine_id": 1,
+    "quantity": 288,
+    "expiry_date": "2026-03-28",
+    "qr_code": "QR-0001-2"
+  },
+  {
+    "batch_id": 3,
+    "medicine_id": 1,
+    "quantity": 271,
+    "expiry_date": "2025-04-14",
+    "qr_code": "QR-0001-3"
+  },
+  {
+    "batch_id": 4,
+    "medicine_id": 1,
+    "quantity": 288,
+    "expiry_date": "2026-01-30",
+    "qr_code": "QR-0001-4"
+  },
+  {
+    "batch_id": 5,
+    "medicine_id": 1,
+    "quantity": 104,
+    "expiry_date": "2025-09-04",
+    "qr_code": "QR-0001-5"
+  },
+  {
+    "batch_id": 6,
+    "medicine_id": 1,
+    "quantity": 446,
+    "expiry_date": "2025-11-03",
+    "qr_code": "QR-0001-6"
+  },
+  {
+    "batch_id": 7,
+    "medicine_id": 2,
+    "quantity": 456,
+    "expiry_date": "2027-10-20",
+    "qr_code": "QR-0002-7"
+  },
+  {
+    "batch_id": 8,
+    "medicine_id": 2,
+    "quantity": 237,
+    "expiry_date": "2027-08-14",
+    "qr_code": "QR-0002-8"
+  },
+  {
+    "batch_id": 9,
+    "medicine_id": 2,
+    "quantity": 451,
+    "expiry_date": "2027-12-17",
+    "qr_code": "QR-0002-9"
+  },
+  {
+    "batch_id": 10,
+    "medicine_id": 2,
+    "quantity": 372,
+    "expiry_date": "2027-07-21",
+    "qr_code": "QR-0002-10"
+  },
+  {
+    "batch_id": 11,
+    "medicine_id": 2,
+    "quantity": 388,
+    "expiry_date": "2026-06-16",
+    "qr_code": "QR-0002-11"
+  },
+  {
+    "batch_id": 12,
+    "medicine_id": 2,
+    "quantity": 321,
+    "expiry_date": "2027-03-28",
+    "qr_code": "QR-0002-12"
+  },
+  {
+    "batch_id": 13,
+    "medicine_id": 3,
+    "quantity": 181,
+    "expiry_date": "2027-02-01",
+    "qr_code": "QR-0003-13"
+  },
+  {
+    "batch_id": 14,
+    "medicine_id": 3,
+    "quantity": 250,
+    "expiry_date": "2028-02-05",
+    "qr_code": "QR-0003-14"
+  },
+  {
+    "batch_id": 15,
+    "medicine_id": 4,
+    "quantity": 360,
+    "expiry_date": "2026-09-12",
+    "qr_code": "QR-0004-15"
+  },
+  {
+    "batch_id": 16,
+    "medicine_id": 4,
+    "quantity": 195,
+    "expiry_date": "2026-09-15",
+    "qr_code": "QR-0004-16"
+  },
+  {
+    "batch_id": 17,
+    "medicine_id": 5,
+    "quantity": 311,
+    "expiry_date": "2025-06-21",
+    "qr_code": "QR-0005-17"
+  },
+  {
+    "batch_id": 18,
+    "medicine_id": 5,
+    "quantity": 54,
+    "expiry_date": "2027-11-25",
+    "qr_code": "QR-0005-18"
+  },
+  {
+    "batch_id": 19,
+    "medicine_id": 5,
+    "quantity": 245,
+    "expiry_date": "2026-12-20",
+    "qr_code": "QR-0005-19"
+  },
+  {
+    "batch_id": 20,
+    "medicine_id": 5,
+    "quantity": 143,
+    "expiry_date": "2027-06-23",
+    "qr_code": "QR-0005-20"
+  },
+  {
+    "batch_id": 21,
+    "medicine_id": 5,
+    "quantity": 142,
+    "expiry_date": "2025-10-31",
+    "qr_code": "QR-0005-21"
+  },
+  {
+    "batch_id": 22,
+    "medicine_id": 5,
+    "quantity": 249,
+    "expiry_date": "2027-07-29",
+    "qr_code": "QR-0005-22"
+  },
+  {
+    "batch_id": 23,
+    "medicine_id": 6,
+    "quantity": 332,
+    "expiry_date": "2026-10-27",
+    "qr_code": "QR-0006-23"
+  },
+  {
+    "batch_id": 24,
+    "medicine_id": 6,
+    "quantity": 233,
+    "expiry_date": "2027-02-22",
+    "qr_code": "QR-0006-24"
+  },
+  {
+    "batch_id": 25,
+    "medicine_id": 6,
+    "quantity": 424,
+    "expiry_date": "2027-10-03",
+    "qr_code": "QR-0006-25"
+  },
+  {
+    "batch_id": 26,
+    "medicine_id": 6,
+    "quantity": 391,
+    "expiry_date": "2026-07-10",
+    "qr_code": "QR-0006-26"
+  },
+  {
+    "batch_id": 27,
+    "medicine_id": 7,
+    "quantity": 379,
+    "expiry_date": "2027-07-31",
+    "qr_code": "QR-0007-27"
+  },
+  {
+    "batch_id": 28,
+    "medicine_id": 7,
+    "quantity": 245,
+    "expiry_date": "2026-03-13",
+    "qr_code": "QR-0007-28"
+  },
+  {
+    "batch_id": 29,
+    "medicine_id": 7,
+    "quantity": 454,
+    "expiry_date": "2025-10-29",
+    "qr_code": "QR-0007-29"
+  },
+  {
+    "batch_id": 30,
+    "medicine_id": 8,
+    "quantity": 62,
+    "expiry_date": "2026-07-24",
+    "qr_code": "QR-0008-30"
+  },
+  {
+    "batch_id": 31,
+    "medicine_id": 8,
+    "quantity": 246,
+    "expiry_date": "2028-01-28",
+    "qr_code": "QR-0008-31"
+  },
+  {
+    "batch_id": 32,
+    "medicine_id": 8,
+    "quantity": 319,
+    "expiry_date": "2025-06-15",
+    "qr_code": "QR-0008-32"
+  },
+  {
+    "batch_id": 33,
+    "medicine_id": 9,
+    "quantity": 476,
+    "expiry_date": "2028-02-19",
+    "qr_code": "QR-0009-33"
+  },
+  {
+    "batch_id": 34,
+    "medicine_id": 9,
+    "quantity": 143,
+    "expiry_date": "2027-11-28",
+    "qr_code": "QR-0009-34"
+  },
+  {
+    "batch_id": 35,
+    "medicine_id": 9,
+    "quantity": 475,
+    "expiry_date": "2027-02-26",
+    "qr_code": "QR-0009-35"
+  },
+  {
+    "batch_id": 36,
+    "medicine_id": 9,
+    "quantity": 196,
+    "expiry_date": "2026-08-07",
+    "qr_code": "QR-0009-36"
+  },
+  {
+    "batch_id": 37,
+    "medicine_id": 9,
+    "quantity": 116,
+    "expiry_date": "2027-03-21",
+    "qr_code": "QR-0009-37"
+  },
+  {
+    "batch_id": 38,
+    "medicine_id": 9,
+    "quantity": 181,
+    "expiry_date": "2027-04-14",
+    "qr_code": "QR-0009-38"
+  },
+  {
+    "batch_id": 39,
+    "medicine_id": 10,
+    "quantity": 330,
+    "expiry_date": "2028-01-21",
+    "qr_code": "QR-0010-39"
+  },
+  {
+    "batch_id": 40,
+    "medicine_id": 10,
+    "quantity": 346,
+    "expiry_date": "2025-12-06",
+    "qr_code": "QR-0010-40"
+  },
+  {
+    "batch_id": 41,
+    "medicine_id": 10,
+    "quantity": 121,
+    "expiry_date": "2027-12-26",
+    "qr_code": "QR-0010-41"
+  },
+  {
+    "batch_id": 42,
+    "medicine_id": 10,
+    "quantity": 315,
+    "expiry_date": "2026-06-19",
+    "qr_code": "QR-0010-42"
+  },
+  {
+    "batch_id": 43,
+    "medicine_id": 11,
+    "quantity": 496,
+    "expiry_date": "2027-10-17",
+    "qr_code": "QR-0011-43"
+  },
+  {
+    "batch_id": 44,
+    "medicine_id": 11,
+    "quantity": 382,
+    "expiry_date": "2026-10-06",
+    "qr_code": "QR-0011-44"
+  },
+  {
+    "batch_id": 45,
+    "medicine_id": 11,
+    "quantity": 358,
+    "expiry_date": "2026-12-05",
+    "qr_code": "QR-0011-45"
+  },
+  {
+    "batch_id": 46,
+    "medicine_id": 11,
+    "quantity": 124,
+    "expiry_date": "2025-08-27",
+    "qr_code": "QR-0011-46"
+  },
+  {
+    "batch_id": 47,
+    "medicine_id": 12,
+    "quantity": 170,
+    "expiry_date": "2025-09-23",
+    "qr_code": "QR-0012-47"
+  },
+  {
+    "batch_id": 48,
+    "medicine_id": 12,
+    "quantity": 157,
+    "expiry_date": "2027-12-05",
+    "qr_code": "QR-0012-48"
+  },
+  {
+    "batch_id": 49,
+    "medicine_id": 12,
+    "quantity": 348,
+    "expiry_date": "2027-05-24",
+    "qr_code": "QR-0012-49"
+  },
+  {
+    "batch_id": 50,
+    "medicine_id": 12,
+    "quantity": 164,
+    "expiry_date": "2027-06-24",
+    "qr_code": "QR-0012-50"
+  },
+  {
+    "batch_id": 51,
+    "medicine_id": 13,
+    "quantity": 500,
+    "expiry_date": "2027-12-17",
+    "qr_code": "QR-0013-51"
+  },
+  {
+    "batch_id": 52,
+    "medicine_id": 13,
+    "quantity": 495,
+    "expiry_date": "2026-11-14",
+    "qr_code": "QR-0013-52"
+  },
+  {
+    "batch_id": 53,
+    "medicine_id": 14,
+    "quantity": 375,
+    "expiry_date": "2026-08-22",
+    "qr_code": "QR-0014-53"
+  },
+  {
+    "batch_id": 54,
+    "medicine_id": 14,
+    "quantity": 108,
+    "expiry_date": "2027-12-29",
+    "qr_code": "QR-0014-54"
+  },
+  {
+    "batch_id": 55,
+    "medicine_id": 14,
+    "quantity": 294,
+    "expiry_date": "2027-12-02",
+    "qr_code": "QR-0014-55"
+  },
+  {
+    "batch_id": 56,
+    "medicine_id": 14,
+    "quantity": 121,
+    "expiry_date": "2027-11-26",
+    "qr_code": "QR-0014-56"
+  },
+  {
+    "batch_id": 57,
+    "medicine_id": 14,
+    "quantity": 84,
+    "expiry_date": "2026-09-30",
+    "qr_code": "QR-0014-57"
+  },
+  {
+    "batch_id": 58,
+    "medicine_id": 14,
+    "quantity": 346,
+    "expiry_date": "2025-07-29",
+    "qr_code": "QR-0014-58"
+  },
+  {
+    "batch_id": 59,
+    "medicine_id": 15,
+    "quantity": 297,
+    "expiry_date": "2025-11-16",
+    "qr_code": "QR-0015-59"
+  },
+  {
+    "batch_id": 60,
+    "medicine_id": 15,
+    "quantity": 63,
+    "expiry_date": "2026-01-11",
+    "qr_code": "QR-0015-60"
+  },
+  {
+    "batch_id": 61,
+    "medicine_id": 15,
+    "quantity": 196,
+    "expiry_date": "2025-08-25",
+    "qr_code": "QR-0015-61"
+  },
+  {
+    "batch_id": 62,
+    "medicine_id": 15,
+    "quantity": 326,
+    "expiry_date": "2027-07-22",
+    "qr_code": "QR-0015-62"
+  },
+  {
+    "batch_id": 63,
+    "medicine_id": 15,
+    "quantity": 73,
+    "expiry_date": "2026-08-04",
+    "qr_code": "QR-0015-63"
+  },
+  {
+    "batch_id": 64,
+    "medicine_id": 15,
+    "quantity": 257,
+    "expiry_date": "2027-03-21",
+    "qr_code": "QR-0015-64"
+  },
+  {
+    "batch_id": 65,
+    "medicine_id": 16,
+    "quantity": 245,
+    "expiry_date": "2025-04-16",
+    "qr_code": "QR-0016-65"
+  },
+  {
+    "batch_id": 66,
+    "medicine_id": 16,
+    "quantity": 139,
+    "expiry_date": "2027-12-20",
+    "qr_code": "QR-0016-66"
+  },
+  {
+    "batch_id": 67,
+    "medicine_id": 16,
+    "quantity": 69,
+    "expiry_date": "2025-07-10",
+    "qr_code": "QR-0016-67"
+  },
+  {
+    "batch_id": 68,
+    "medicine_id": 16,
+    "quantity": 436,
+    "expiry_date": "2026-08-11",
+    "qr_code": "QR-0016-68"
+  },
+  {
+    "batch_id": 69,
+    "medicine_id": 17,
+    "quantity": 215,
+    "expiry_date": "2026-05-29",
+    "qr_code": "QR-0017-69"
+  },
+  {
+    "batch_id": 70,
+    "medicine_id": 17,
+    "quantity": 181,
+    "expiry_date": "2026-03-06",
+    "qr_code": "QR-0017-70"
+  },
+  {
+    "batch_id": 71,
+    "medicine_id": 17,
+    "quantity": 492,
+    "expiry_date": "2028-02-25",
+    "qr_code": "QR-0017-71"
+  },
+  {
+    "batch_id": 72,
+    "medicine_id": 17,
+    "quantity": 437,
+    "expiry_date": "2026-11-15",
+    "qr_code": "QR-0017-72"
+  },
+  {
+    "batch_id": 73,
+    "medicine_id": 18,
+    "quantity": 192,
+    "expiry_date": "2027-10-05",
+    "qr_code": "QR-0018-73"
+  },
+  {
+    "batch_id": 74,
+    "medicine_id": 18,
+    "quantity": 57,
+    "expiry_date": "2026-06-07",
+    "qr_code": "QR-0018-74"
+  },
+  {
+    "batch_id": 75,
+    "medicine_id": 18,
+    "quantity": 364,
+    "expiry_date": "2027-09-20",
+    "qr_code": "QR-0018-75"
+  },
+  {
+    "batch_id": 76,
+    "medicine_id": 19,
+    "quantity": 154,
+    "expiry_date": "2027-12-11",
+    "qr_code": "QR-0019-76"
+  },
+  {
+    "batch_id": 77,
+    "medicine_id": 19,
+    "quantity": 461,
+    "expiry_date": "2027-11-21",
+    "qr_code": "QR-0019-77"
+  },
+  {
+    "batch_id": 78,
+    "medicine_id": 19,
+    "quantity": 317,
+    "expiry_date": "2026-12-31",
+    "qr_code": "QR-0019-78"
+  },
+  {
+    "batch_id": 79,
+    "medicine_id": 20,
+    "quantity": 203,
+    "expiry_date": "2027-12-26",
+    "qr_code": "QR-0020-79"
+  },
+  {
+    "batch_id": 80,
+    "medicine_id": 20,
+    "quantity": 116,
+    "expiry_date": "2025-12-22",
+    "qr_code": "QR-0020-80"
+  },
+  {
+    "batch_id": 81,
+    "medicine_id": 21,
+    "quantity": 83,
+    "expiry_date": "2025-05-22",
+    "qr_code": "QR-0021-81"
+  },
+  {
+    "batch_id": 82,
+    "medicine_id": 21,
+    "quantity": 436,
+    "expiry_date": "2027-05-14",
+    "qr_code": "QR-0021-82"
+  },
+  {
+    "batch_id": 83,
+    "medicine_id": 21,
+    "quantity": 276,
+    "expiry_date": "2027-06-03",
+    "qr_code": "QR-0021-83"
+  },
+  {
+    "batch_id": 84,
+    "medicine_id": 21,
+    "quantity": 318,
+    "expiry_date": "2025-07-13",
+    "qr_code": "QR-0021-84"
+  },
+  {
+    "batch_id": 85,
+    "medicine_id": 21,
+    "quantity": 60,
+    "expiry_date": "2026-02-05",
+    "qr_code": "QR-0021-85"
+  },
+  {
+    "batch_id": 86,
+    "medicine_id": 22,
+    "quantity": 51,
+    "expiry_date": "2026-04-23",
+    "qr_code": "QR-0022-86"
+  },
+  {
+    "batch_id": 87,
+    "medicine_id": 22,
+    "quantity": 440,
+    "expiry_date": "2025-05-20",
+    "qr_code": "QR-0022-87"
+  },
+  {
+    "batch_id": 88,
+    "medicine_id": 22,
+    "quantity": 186,
+    "expiry_date": "2026-03-12",
+    "qr_code": "QR-0022-88"
+  },
+  {
+    "batch_id": 89,
+    "medicine_id": 22,
+    "quantity": 96,
+    "expiry_date": "2026-09-05",
+    "qr_code": "QR-0022-89"
+  },
+  {
+    "batch_id": 90,
+    "medicine_id": 23,
+    "quantity": 334,
+    "expiry_date": "2026-06-30",
+    "qr_code": "QR-0023-90"
+  },
+  {
+    "batch_id": 91,
+    "medicine_id": 23,
+    "quantity": 221,
+    "expiry_date": "2027-03-18",
+    "qr_code": "QR-0023-91"
+  },
+  {
+    "batch_id": 92,
+    "medicine_id": 23,
+    "quantity": 483,
+    "expiry_date": "2025-07-21",
+    "qr_code": "QR-0023-92"
+  },
+  {
+    "batch_id": 93,
+    "medicine_id": 23,
+    "quantity": 127,
+    "expiry_date": "2025-10-11",
+    "qr_code": "QR-0023-93"
+  },
+  {
+    "batch_id": 94,
+    "medicine_id": 24,
+    "quantity": 383,
+    "expiry_date": "2026-10-26",
+    "qr_code": "QR-0024-94"
+  },
+  {
+    "batch_id": 95,
+    "medicine_id": 24,
+    "quantity": 388,
+    "expiry_date": "2025-07-22",
+    "qr_code": "QR-0024-95"
+  },
+  {
+    "batch_id": 96,
+    "medicine_id": 24,
+    "quantity": 177,
+    "expiry_date": "2026-12-25",
+    "qr_code": "QR-0024-96"
+  },
+  {
+    "batch_id": 97,
+    "medicine_id": 24,
+    "quantity": 204,
+    "expiry_date": "2026-05-31",
+    "qr_code": "QR-0024-97"
+  },
+  {
+    "batch_id": 98,
+    "medicine_id": 24,
+    "quantity": 127,
+    "expiry_date": "2027-10-26",
+    "qr_code": "QR-0024-98"
+  },
+  {
+    "batch_id": 99,
+    "medicine_id": 25,
+    "quantity": 99,
+    "expiry_date": "2027-01-22",
+    "qr_code": "QR-0025-99"
+  },
+  {
+    "batch_id": 100,
+    "medicine_id": 25,
+    "quantity": 467,
+    "expiry_date": "2026-08-29",
+    "qr_code": "QR-0025-100"
+  },
+  {
+    "batch_id": 101,
+    "medicine_id": 25,
+    "quantity": 291,
+    "expiry_date": "2026-11-01",
+    "qr_code": "QR-0025-101"
+  },
+  {
+    "batch_id": 102,
+    "medicine_id": 26,
+    "quantity": 494,
+    "expiry_date": "2027-12-20",
+    "qr_code": "QR-0026-102"
+  },
+  {
+    "batch_id": 103,
+    "medicine_id": 26,
+    "quantity": 332,
+    "expiry_date": "2028-01-20",
+    "qr_code": "QR-0026-103"
+  },
+  {
+    "batch_id": 104,
+    "medicine_id": 26,
+    "quantity": 474,
+    "expiry_date": "2027-09-20",
+    "qr_code": "QR-0026-104"
+  },
+  {
+    "batch_id": 105,
+    "medicine_id": 26,
+    "quantity": 203,
+    "expiry_date": "2025-11-21",
+    "qr_code": "QR-0026-105"
+  },
+  {
+    "batch_id": 106,
+    "medicine_id": 26,
+    "quantity": 352,
+    "expiry_date": "2026-02-09",
+    "qr_code": "QR-0026-106"
+  },
+  {
+    "batch_id": 107,
+    "medicine_id": 27,
+    "quantity": 233,
+    "expiry_date": "2026-07-12",
+    "qr_code": "QR-0027-107"
+  },
+  {
+    "batch_id": 108,
+    "medicine_id": 27,
+    "quantity": 376,
+    "expiry_date": "2027-01-29",
+    "qr_code": "QR-0027-108"
+  },
+  {
+    "batch_id": 109,
+    "medicine_id": 27,
+    "quantity": 249,
+    "expiry_date": "2026-05-23",
+    "qr_code": "QR-0027-109"
+  },
+  {
+    "batch_id": 110,
+    "medicine_id": 28,
+    "quantity": 493,
+    "expiry_date": "2026-11-02",
+    "qr_code": "QR-0028-110"
+  },
+  {
+    "batch_id": 111,
+    "medicine_id": 28,
+    "quantity": 191,
+    "expiry_date": "2026-10-27",
+    "qr_code": "QR-0028-111"
+  },
+  {
+    "batch_id": 112,
+    "medicine_id": 28,
+    "quantity": 132,
+    "expiry_date": "2026-01-15",
+    "qr_code": "QR-0028-112"
+  },
+  {
+    "batch_id": 113,
+    "medicine_id": 29,
+    "quantity": 343,
+    "expiry_date": "2026-09-10",
+    "qr_code": "QR-0029-113"
+  },
+  {
+    "batch_id": 114,
+    "medicine_id": 29,
+    "quantity": 123,
+    "expiry_date": "2027-11-01",
+    "qr_code": "QR-0029-114"
+  },
+  {
+    "batch_id": 115,
+    "medicine_id": 30,
+    "quantity": 498,
+    "expiry_date": "2026-02-21",
+    "qr_code": "QR-0030-115"
+  },
+  {
+    "batch_id": 116,
+    "medicine_id": 30,
+    "quantity": 363,
+    "expiry_date": "2026-08-22",
+    "qr_code": "QR-0030-116"
+  },
+  {
+    "batch_id": 117,
+    "medicine_id": 30,
+    "quantity": 284,
+    "expiry_date": "2027-12-01",
+    "qr_code": "QR-0030-117"
+  },
+  {
+    "batch_id": 118,
+    "medicine_id": 31,
+    "quantity": 465,
+    "expiry_date": "2026-07-28",
+    "qr_code": "QR-0031-118"
+  },
+  {
+    "batch_id": 119,
+    "medicine_id": 31,
+    "quantity": 352,
+    "expiry_date": "2025-05-24",
+    "qr_code": "QR-0031-119"
+  },
+  {
+    "batch_id": 120,
+    "medicine_id": 31,
+    "quantity": 457,
+    "expiry_date": "2025-04-05",
+    "qr_code": "QR-0031-120"
+  },
+  {
+    "batch_id": 121,
+    "medicine_id": 31,
+    "quantity": 430,
+    "expiry_date": "2027-10-24",
+    "qr_code": "QR-0031-121"
+  },
+  {
+    "batch_id": 122,
+    "medicine_id": 32,
+    "quantity": 374,
+    "expiry_date": "2027-06-19",
+    "qr_code": "QR-0032-122"
+  },
+  {
+    "batch_id": 123,
+    "medicine_id": 32,
+    "quantity": 469,
+    "expiry_date": "2027-09-04",
+    "qr_code": "QR-0032-123"
+  },
+  {
+    "batch_id": 124,
+    "medicine_id": 32,
+    "quantity": 71,
+    "expiry_date": "2026-12-18",
+    "qr_code": "QR-0032-124"
+  },
+  {
+    "batch_id": 125,
+    "medicine_id": 33,
+    "quantity": 56,
+    "expiry_date": "2025-05-20",
+    "qr_code": "QR-0033-125"
+  },
+  {
+    "batch_id": 126,
+    "medicine_id": 33,
+    "quantity": 468,
+    "expiry_date": "2026-10-01",
+    "qr_code": "QR-0033-126"
+  },
+  {
+    "batch_id": 127,
+    "medicine_id": 33,
+    "quantity": 311,
+    "expiry_date": "2026-07-16",
+    "qr_code": "QR-0033-127"
+  },
+  {
+    "batch_id": 128,
+    "medicine_id": 33,
+    "quantity": 409,
+    "expiry_date": "2027-10-07",
+    "qr_code": "QR-0033-128"
+  },
+  {
+    "batch_id": 129,
+    "medicine_id": 33,
+    "quantity": 162,
+    "expiry_date": "2025-11-07",
+    "qr_code": "QR-0033-129"
+  },
+  {
+    "batch_id": 130,
+    "medicine_id": 34,
+    "quantity": 195,
+    "expiry_date": "2027-07-29",
+    "qr_code": "QR-0034-130"
+  },
+  {
+    "batch_id": 131,
+    "medicine_id": 34,
+    "quantity": 396,
+    "expiry_date": "2027-01-14",
+    "qr_code": "QR-0034-131"
+  },
+  {
+    "batch_id": 132,
+    "medicine_id": 34,
+    "quantity": 493,
+    "expiry_date": "2027-09-21",
+    "qr_code": "QR-0034-132"
+  },
+  {
+    "batch_id": 133,
+    "medicine_id": 34,
+    "quantity": 112,
+    "expiry_date": "2026-08-18",
+    "qr_code": "QR-0034-133"
+  },
+  {
+    "batch_id": 134,
+    "medicine_id": 34,
+    "quantity": 453,
+    "expiry_date": "2025-08-11",
+    "qr_code": "QR-0034-134"
+  },
+  {
+    "batch_id": 135,
+    "medicine_id": 34,
+    "quantity": 135,
+    "expiry_date": "2026-02-23",
+    "qr_code": "QR-0034-135"
+  },
+  {
+    "batch_id": 136,
+    "medicine_id": 35,
+    "quantity": 492,
+    "expiry_date": "2025-07-17",
+    "qr_code": "QR-0035-136"
+  },
+  {
+    "batch_id": 137,
+    "medicine_id": 35,
+    "quantity": 265,
+    "expiry_date": "2026-04-12",
+    "qr_code": "QR-0035-137"
+  },
+  {
+    "batch_id": 138,
+    "medicine_id": 35,
+    "quantity": 149,
+    "expiry_date": "2025-06-22",
+    "qr_code": "QR-0035-138"
+  },
+  {
+    "batch_id": 139,
+    "medicine_id": 35,
+    "quantity": 151,
+    "expiry_date": "2025-07-19",
+    "qr_code": "QR-0035-139"
+  },
+  {
+    "batch_id": 140,
+    "medicine_id": 35,
+    "quantity": 160,
+    "expiry_date": "2025-10-08",
+    "qr_code": "QR-0035-140"
+  },
+  {
+    "batch_id": 141,
+    "medicine_id": 36,
+    "quantity": 449,
+    "expiry_date": "2026-03-06",
+    "qr_code": "QR-0036-141"
+  },
+  {
+    "batch_id": 142,
+    "medicine_id": 36,
+    "quantity": 97,
+    "expiry_date": "2027-02-20",
+    "qr_code": "QR-0036-142"
+  },
+  {
+    "batch_id": 143,
+    "medicine_id": 36,
+    "quantity": 94,
+    "expiry_date": "2026-05-21",
+    "qr_code": "QR-0036-143"
+  },
+  {
+    "batch_id": 144,
+    "medicine_id": 36,
+    "quantity": 75,
+    "expiry_date": "2027-11-09",
+    "qr_code": "QR-0036-144"
+  },
+  {
+    "batch_id": 145,
+    "medicine_id": 36,
+    "quantity": 143,
+    "expiry_date": "2025-05-31",
+    "qr_code": "QR-0036-145"
+  },
+  {
+    "batch_id": 146,
+    "medicine_id": 36,
+    "quantity": 326,
+    "expiry_date": "2026-07-18",
+    "qr_code": "QR-0036-146"
+  },
+  {
+    "batch_id": 147,
+    "medicine_id": 37,
+    "quantity": 317,
+    "expiry_date": "2026-05-17",
+    "qr_code": "QR-0037-147"
+  },
+  {
+    "batch_id": 148,
+    "medicine_id": 37,
+    "quantity": 274,
+    "expiry_date": "2027-07-26",
+    "qr_code": "QR-0037-148"
+  },
+  {
+    "batch_id": 149,
+    "medicine_id": 37,
+    "quantity": 86,
+    "expiry_date": "2025-09-06",
+    "qr_code": "QR-0037-149"
+  },
+  {
+    "batch_id": 150,
+    "medicine_id": 37,
+    "quantity": 494,
+    "expiry_date": "2027-08-10",
+    "qr_code": "QR-0037-150"
+  },
+  {
+    "batch_id": 151,
+    "medicine_id": 38,
+    "quantity": 217,
+    "expiry_date": "2025-07-04",
+    "qr_code": "QR-0038-151"
+  },
+  {
+    "batch_id": 152,
+    "medicine_id": 38,
+    "quantity": 96,
+    "expiry_date": "2027-05-12",
+    "qr_code": "QR-0038-152"
+  },
+  {
+    "batch_id": 153,
+    "medicine_id": 38,
+    "quantity": 452,
+    "expiry_date": "2025-08-19",
+    "qr_code": "QR-0038-153"
+  },
+  {
+    "batch_id": 154,
+    "medicine_id": 39,
+    "quantity": 372,
+    "expiry_date": "2027-05-23",
+    "qr_code": "QR-0039-154"
+  },
+  {
+    "batch_id": 155,
+    "medicine_id": 39,
+    "quantity": 229,
+    "expiry_date": "2025-11-16",
+    "qr_code": "QR-0039-155"
+  },
+  {
+    "batch_id": 156,
+    "medicine_id": 39,
+    "quantity": 354,
+    "expiry_date": "2026-01-23",
+    "qr_code": "QR-0039-156"
+  },
+  {
+    "batch_id": 157,
+    "medicine_id": 40,
+    "quantity": 187,
+    "expiry_date": "2026-04-09",
+    "qr_code": "QR-0040-157"
+  },
+  {
+    "batch_id": 158,
+    "medicine_id": 40,
+    "quantity": 125,
+    "expiry_date": "2027-08-25",
+    "qr_code": "QR-0040-158"
+  },
+  {
+    "batch_id": 159,
+    "medicine_id": 40,
+    "quantity": 327,
+    "expiry_date": "2026-08-24",
+    "qr_code": "QR-0040-159"
+  },
+  {
+    "batch_id": 160,
+    "medicine_id": 40,
+    "quantity": 189,
+    "expiry_date": "2026-10-01",
+    "qr_code": "QR-0040-160"
+  },
+  {
+    "batch_id": 161,
+    "medicine_id": 41,
+    "quantity": 211,
+    "expiry_date": "2027-12-11",
+    "qr_code": "QR-0041-161"
+  },
+  {
+    "batch_id": 162,
+    "medicine_id": 41,
+    "quantity": 160,
+    "expiry_date": "2028-02-12",
+    "qr_code": "QR-0041-162"
+  },
+  {
+    "batch_id": 163,
+    "medicine_id": 41,
+    "quantity": 392,
+    "expiry_date": "2027-06-28",
+    "qr_code": "QR-0041-163"
+  },
+  {
+    "batch_id": 164,
+    "medicine_id": 41,
+    "quantity": 301,
+    "expiry_date": "2027-05-22",
+    "qr_code": "QR-0041-164"
+  },
+  {
+    "batch_id": 165,
+    "medicine_id": 42,
+    "quantity": 198,
+    "expiry_date": "2026-01-11",
+    "qr_code": "QR-0042-165"
+  },
+  {
+    "batch_id": 166,
+    "medicine_id": 42,
+    "quantity": 178,
+    "expiry_date": "2027-12-08",
+    "qr_code": "QR-0042-166"
+  },
+  {
+    "batch_id": 167,
+    "medicine_id": 42,
+    "quantity": 171,
+    "expiry_date": "2025-06-29",
+    "qr_code": "QR-0042-167"
+  },
+  {
+    "batch_id": 168,
+    "medicine_id": 43,
+    "quantity": 140,
+    "expiry_date": "2025-04-05",
+    "qr_code": "QR-0043-168"
+  },
+  {
+    "batch_id": 169,
+    "medicine_id": 43,
+    "quantity": 219,
+    "expiry_date": "2027-05-16",
+    "qr_code": "QR-0043-169"
+  },
+  {
+    "batch_id": 170,
+    "medicine_id": 43,
+    "quantity": 474,
+    "expiry_date": "2027-11-21",
+    "qr_code": "QR-0043-170"
+  },
+  {
+    "batch_id": 171,
+    "medicine_id": 43,
+    "quantity": 463,
+    "expiry_date": "2027-08-28",
+    "qr_code": "QR-0043-171"
+  },
+  {
+    "batch_id": 172,
+    "medicine_id": 43,
+    "quantity": 484,
+    "expiry_date": "2026-01-11",
+    "qr_code": "QR-0043-172"
+  },
+  {
+    "batch_id": 173,
+    "medicine_id": 43,
+    "quantity": 407,
+    "expiry_date": "2025-11-24",
+    "qr_code": "QR-0043-173"
+  },
+  {
+    "batch_id": 174,
+    "medicine_id": 44,
+    "quantity": 401,
+    "expiry_date": "2027-01-31",
+    "qr_code": "QR-0044-174"
+  },
+  {
+    "batch_id": 175,
+    "medicine_id": 44,
+    "quantity": 95,
+    "expiry_date": "2025-10-22",
+    "qr_code": "QR-0044-175"
+  },
+  {
+    "batch_id": 176,
+    "medicine_id": 44,
+    "quantity": 92,
+    "expiry_date": "2025-09-18",
+    "qr_code": "QR-0044-176"
+  },
+  {
+    "batch_id": 177,
+    "medicine_id": 44,
+    "quantity": 454,
+    "expiry_date": "2025-04-09",
+    "qr_code": "QR-0044-177"
+  },
+  {
+    "batch_id": 178,
+    "medicine_id": 44,
+    "quantity": 292,
+    "expiry_date": "2027-06-11",
+    "qr_code": "QR-0044-178"
+  },
+  {
+    "batch_id": 179,
+    "medicine_id": 45,
+    "quantity": 234,
+    "expiry_date": "2027-11-23",
+    "qr_code": "QR-0045-179"
+  },
+  {
+    "batch_id": 180,
+    "medicine_id": 45,
+    "quantity": 207,
+    "expiry_date": "2026-09-28",
+    "qr_code": "QR-0045-180"
+  },
+  {
+    "batch_id": 181,
+    "medicine_id": 45,
+    "quantity": 110,
+    "expiry_date": "2027-11-10",
+    "qr_code": "QR-0045-181"
+  },
+  {
+    "batch_id": 182,
+    "medicine_id": 45,
+    "quantity": 349,
+    "expiry_date": "2027-12-26",
+    "qr_code": "QR-0045-182"
+  },
+  {
+    "batch_id": 183,
+    "medicine_id": 45,
+    "quantity": 486,
+    "expiry_date": "2026-02-19",
+    "qr_code": "QR-0045-183"
+  },
+  {
+    "batch_id": 184,
+    "medicine_id": 45,
+    "quantity": 485,
+    "expiry_date": "2026-09-15",
+    "qr_code": "QR-0045-184"
+  },
+  {
+    "batch_id": 185,
+    "medicine_id": 46,
+    "quantity": 491,
+    "expiry_date": "2026-11-01",
+    "qr_code": "QR-0046-185"
+  },
+  {
+    "batch_id": 186,
+    "medicine_id": 46,
+    "quantity": 88,
+    "expiry_date": "2025-04-06",
+    "qr_code": "QR-0046-186"
+  },
+  {
+    "batch_id": 187,
+    "medicine_id": 46,
+    "quantity": 345,
+    "expiry_date": "2025-09-14",
+    "qr_code": "QR-0046-187"
+  },
+  {
+    "batch_id": 188,
+    "medicine_id": 47,
+    "quantity": 89,
+    "expiry_date": "2026-05-15",
+    "qr_code": "QR-0047-188"
+  },
+  {
+    "batch_id": 189,
+    "medicine_id": 47,
+    "quantity": 273,
+    "expiry_date": "2026-09-12",
+    "qr_code": "QR-0047-189"
+  },
+  {
+    "batch_id": 190,
+    "medicine_id": 47,
+    "quantity": 273,
+    "expiry_date": "2026-04-24",
+    "qr_code": "QR-0047-190"
+  },
+  {
+    "batch_id": 191,
+    "medicine_id": 47,
+    "quantity": 456,
+    "expiry_date": "2025-06-06",
+    "qr_code": "QR-0047-191"
+  },
+  {
+    "batch_id": 192,
+    "medicine_id": 47,
+    "quantity": 80,
+    "expiry_date": "2026-06-01",
+    "qr_code": "QR-0047-192"
+  },
+  {
+    "batch_id": 193,
+    "medicine_id": 48,
+    "quantity": 202,
+    "expiry_date": "2026-12-14",
+    "qr_code": "QR-0048-193"
+  },
+  {
+    "batch_id": 194,
+    "medicine_id": 48,
+    "quantity": 314,
+    "expiry_date": "2026-10-11",
+    "qr_code": "QR-0048-194"
+  },
+  {
+    "batch_id": 195,
+    "medicine_id": 49,
+    "quantity": 164,
+    "expiry_date": "2027-07-14",
+    "qr_code": "QR-0049-195"
+  },
+  {
+    "batch_id": 196,
+    "medicine_id": 49,
+    "quantity": 114,
+    "expiry_date": "2027-10-24",
+    "qr_code": "QR-0049-196"
+  },
+  {
+    "batch_id": 197,
+    "medicine_id": 49,
+    "quantity": 101,
+    "expiry_date": "2027-11-23",
+    "qr_code": "QR-0049-197"
+  },
+  {
+    "batch_id": 198,
+    "medicine_id": 50,
+    "quantity": 394,
+    "expiry_date": "2027-05-02",
+    "qr_code": "QR-0050-198"
+  },
+  {
+    "batch_id": 199,
+    "medicine_id": 50,
+    "quantity": 490,
+    "expiry_date": "2027-07-09",
+    "qr_code": "QR-0050-199"
+  },
+  {
+    "batch_id": 200,
+    "medicine_id": 50,
+    "quantity": 179,
+    "expiry_date": "2026-04-12",
+    "qr_code": "QR-0050-200"
+  },
+  {
+    "batch_id": 201,
+    "medicine_id": 50,
+    "quantity": 438,
+    "expiry_date": "2026-06-24",
+    "qr_code": "QR-0050-201"
+  }
+]

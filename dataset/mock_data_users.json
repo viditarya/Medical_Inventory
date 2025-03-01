@@ -1,0 +1,56 @@
+[
+  {
+    "user_id": 1,
+    "username": "admin",
+    "password_hash": "hashed_admin",
+    "role": "admin"
+  },
+  {
+    "user_id": 2,
+    "username": "manager",
+    "password_hash": "hashed_manager",
+    "role": "manager"
+  },
+  {
+    "user_id": 3,
+    "username": "cashier",
+    "password_hash": "hashed_cashier",
+    "role": "cashier"
+  },
+  {
+    "user_id": 4,
+    "username": "kristin.chavarria",
+    "password_hash": "hashed_kristin.chavarria",
+    "role": "manager"
+  },
+  {
+    "user_id": 5,
+    "username": "william.sullivan",
+    "password_hash": "hashed_william.sullivan",
+    "role": "manager"
+  },
+  {
+    "user_id": 6,
+    "username": "robin.swan",
+    "password_hash": "hashed_robin.swan",
+    "role": "manager"
+  },
+  {
+    "user_id": 7,
+    "username": "myra.owsley",
+    "password_hash": "hashed_myra.owsley",
+    "role": "manager"
+  },
+  {
+    "user_id": 8,
+    "username": "ruby.link",
+    "password_hash": "hashed_ruby.link",
+    "role": "cashier"
+  },
+  {
+    "user_id": 9,
+    "username": "gregory.newton",
+    "password_hash": "hashed_gregory.newton",
+    "role": "cashier"
+  }
+]

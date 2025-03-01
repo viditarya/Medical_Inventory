@@ -1,0 +1,252 @@
+[
+  {
+    "threshold_id": 1,
+    "medicine_id": 1,
+    "reorder_level": 55
+  },
+  {
+    "threshold_id": 2,
+    "medicine_id": 2,
+    "reorder_level": 59
+  },
+  {
+    "threshold_id": 3,
+    "medicine_id": 3,
+    "reorder_level": 87
+  },
+  {
+    "threshold_id": 4,
+    "medicine_id": 4,
+    "reorder_level": 69
+  },
+  {
+    "threshold_id": 5,
+    "medicine_id": 5,
+    "reorder_level": 191
+  },
+  {
+    "threshold_id": 6,
+    "medicine_id": 6,
+    "reorder_level": 97
+  },
+  {
+    "threshold_id": 7,
+    "medicine_id": 7,
+    "reorder_level": 85
+  },
+  {
+    "threshold_id": 8,
+    "medicine_id": 8,
+    "reorder_level": 200
+  },
+  {
+    "threshold_id": 9,
+    "medicine_id": 9,
+    "reorder_level": 109
+  },
+  {
+    "threshold_id": 10,
+    "medicine_id": 10,
+    "reorder_level": 74
+  },
+  {
+    "threshold_id": 11,
+    "medicine_id": 11,
+    "reorder_level": 113
+  },
+  {
+    "threshold_id": 12,
+    "medicine_id": 12,
+    "reorder_level": 57
+  },
+  {
+    "threshold_id": 13,
+    "medicine_id": 13,
+    "reorder_level": 71
+  },
+  {
+    "threshold_id": 14,
+    "medicine_id": 14,
+    "reorder_level": 85
+  },
+  {
+    "threshold_id": 15,
+    "medicine_id": 15,
+    "reorder_level": 192
+  },
+  {
+    "threshold_id": 16,
+    "medicine_id": 16,
+    "reorder_level": 130
+  },
+  {
+    "threshold_id": 17,
+    "medicine_id": 17,
+    "reorder_level": 124
+  },
+  {
+    "threshold_id": 18,
+    "medicine_id": 18,
+    "reorder_level": 177
+  },
+  {
+    "threshold_id": 19,
+    "medicine_id": 19,
+    "reorder_level": 61
+  },
+  {
+    "threshold_id": 20,
+    "medicine_id": 20,
+    "reorder_level": 151
+  },
+  {
+    "threshold_id": 21,
+    "medicine_id": 21,
+    "reorder_level": 64
+  },
+  {
+    "threshold_id": 22,
+    "medicine_id": 22,
+    "reorder_level": 93
+  },
+  {
+    "threshold_id": 23,
+    "medicine_id": 23,
+    "reorder_level": 92
+  },
+  {
+    "threshold_id": 24,
+    "medicine_id": 24,
+    "reorder_level": 156
+  },
+  {
+    "threshold_id": 25,
+    "medicine_id": 25,
+    "reorder_level": 91
+  },
+  {
+    "threshold_id": 26,
+    "medicine_id": 26,
+    "reorder_level": 94
+  },
+  {
+    "threshold_id": 27,
+    "medicine_id": 27,
+    "reorder_level": 113
+  },
+  {
+    "threshold_id": 28,
+    "medicine_id": 28,
+    "reorder_level": 106
+  },
+  {
+    "threshold_id": 29,
+    "medicine_id": 29,
+    "reorder_level": 59
+  },
+  {
+    "threshold_id": 30,
+    "medicine_id": 30,
+    "reorder_level": 63
+  },
+  {
+    "threshold_id": 31,
+    "medicine_id": 31,
+    "reorder_level": 86
+  },
+  {
+    "threshold_id": 32,
+    "medicine_id": 32,
+    "reorder_level": 169
+  },
+  {
+    "threshold_id": 33,
+    "medicine_id": 33,
+    "reorder_level": 72
+  },
+  {
+    "threshold_id": 34,
+    "medicine_id": 34,
+    "reorder_level": 177
+  },
+  {
+    "threshold_id": 35,
+    "medicine_id": 35,
+    "reorder_level": 181
+  },
+  {
+    "threshold_id": 36,
+    "medicine_id": 36,
+    "reorder_level": 159
+  },
+  {
+    "threshold_id": 37,
+    "medicine_id": 37,
+    "reorder_level": 106
+  },
+  {
+    "threshold_id": 38,
+    "medicine_id": 38,
+    "reorder_level": 195
+  },
+  {
+    "threshold_id": 39,
+    "medicine_id": 39,
+    "reorder_level": 153
+  },
+  {
+    "threshold_id": 40,
+    "medicine_id": 40,
+    "reorder_level": 147
+  },
+  {
+    "threshold_id": 41,
+    "medicine_id": 41,
+    "reorder_level": 187
+  },
+  {
+    "threshold_id": 42,
+    "medicine_id": 42,
+    "reorder_level": 50
+  },
+  {
+    "threshold_id": 43,
+    "medicine_id": 43,
+    "reorder_level": 152
+  },
+  {
+    "threshold_id": 44,
+    "medicine_id": 44,
+    "reorder_level": 157
+  },
+  {
+    "threshold_id": 45,
+    "medicine_id": 45,
+    "reorder_level": 83
+  },
+  {
+    "threshold_id": 46,
+    "medicine_id": 46,
+    "reorder_level": 92
+  },
+  {
+    "threshold_id": 47,
+    "medicine_id": 47,
+    "reorder_level": 185
+  },
+  {
+    "threshold_id": 48,
+    "medicine_id": 48,
+    "reorder_level": 139
+  },
+  {
+    "threshold_id": 49,
+    "medicine_id": 49,
+    "reorder_level": 185
+  },
+  {
+    "threshold_id": 50,
+    "medicine_id": 50,
+    "reorder_level": 55
+  }
+]
