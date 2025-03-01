@@ -49,35 +49,31 @@ def generate_usage_history(medicine_id, start_date, end_date, base_demand,
     dates = pd.date_range(start_date, end_date)
     usage = []
     
-    # Add long-term trend
     trend_factor = 1.0
-    trend_increase = 0.0002  # Gradual increase in demand over time
+    trend_increase = 0.0001  # Reduced trend increase
     
     for date in dates:
-        # Base demand with some randomness
-        demand = base_demand * (1 + np.random.normal(0, 0.2))
+        # Reduced random variation
+        demand = base_demand * (1 + np.random.normal(0, 0.1))
         
-        # Add seasonal variation
         month = date.month
         demand *= seasonal_factor[month-1]
         
-        # Add trend
         trend_factor += trend_increase
         demand *= trend_factor
         
-        # Add pandemic effects
+        # Reduced pandemic effects
         for pandemic_start, pandemic_end, multiplier in pandemic_periods:
             if pandemic_start <= date <= pandemic_end:
-                demand *= multiplier
+                demand *= min(multiplier, 2.0)
         
-        # Add special events effects (festivals, health campaigns, etc.)
+        # Reduced special event effects
         for event_date, event_multiplier in special_events:
-            if abs((date - event_date).days) <= 3:  # Effect spans 7 days
-                demand *= event_multiplier
+            if abs((date - event_date).days) <= 3:
+                demand *= min(event_multiplier, 1.3)
         
-        # Add some weekly patterns
-        if date.dayofweek in [5, 6]:  # Weekends
-            demand *= 0.8
+        if date.dayofweek in [5, 6]:
+            demand *= 0.9
         
         usage.append({
             'medicine_id': medicine_id,
@@ -94,6 +90,22 @@ def export_to_csv(data, filename, directory):
     df.to_csv(path / filename, index=False)
     print(f"Exported {filename} to {path}")
 
+def clean_database(conn, cur):
+    """Clean all existing data from the tables"""
+    cur.execute("""
+        TRUNCATE TABLE usage_history CASCADE;
+        TRUNCATE TABLE batches CASCADE;
+        TRUNCATE TABLE medicines CASCADE;
+        TRUNCATE TABLE predictions CASCADE;
+        TRUNCATE TABLE thresholds CASCADE;
+        TRUNCATE TABLE pandemics CASCADE;
+        -- Reset the serial sequences
+        ALTER SEQUENCE medicines_medicine_id_seq RESTART WITH 1;
+        ALTER SEQUENCE batches_batch_id_seq RESTART WITH 1;
+        ALTER SEQUENCE usage_history_usage_id_seq RESTART WITH 1;
+    """)
+    conn.commit()
+
 def main():
     # Configuration with extended historical data for better Prophet training
     start_date = datetime(2020, 1, 1)  # 3+ years of historical data
@@ -109,19 +121,19 @@ def main():
                 (5, 'Salbutamol', 'Bronchodilator', 'puffs', 30)
             ],
             'pandemic_periods': [
-                (datetime(2020, 3, 15), datetime(2020, 7, 31), 4.0),  # First COVID wave
-                (datetime(2021, 4, 1), datetime(2021, 6, 30), 3.5),   # Second wave
-                (datetime(2023, 1, 1), datetime(2023, 3, 31), 2.0)    # Recent outbreak
+                (datetime(2020, 3, 15), datetime(2020, 7, 31), 2.0),
+                (datetime(2021, 4, 1), datetime(2021, 6, 30), 1.8),
+                (datetime(2023, 1, 1), datetime(2023, 3, 31), 1.5)
             ],
             'seasonal_factors': {
-                'Cetirizine': [1.5, 1.8, 2.0, 2.0, 1.8, 1.2, 1.0, 1.0, 1.2, 1.3, 1.4, 1.5],  # Higher in spring
+                'Cetirizine': [1.2, 1.4, 1.5, 1.5, 1.4, 1.1, 1.0, 1.0, 1.1, 1.2, 1.2, 1.2],
                 'default': [1.0, 1.0, 1.1, 1.1, 1.0, 0.9, 0.9, 1.0, 1.1, 1.1, 1.0, 1.0]
             },
             'special_events': [
-                (datetime(2020, 10, 25), 1.5),  # Diwali
-                (datetime(2021, 11, 4), 1.5),   # Diwali
-                (datetime(2022, 10, 24), 1.5),  # Diwali
-                (datetime(2023, 11, 12), 1.5),  # Diwali
+                (datetime(2020, 10, 25), 1.3),
+                (datetime(2021, 11, 4), 1.3),
+                (datetime(2022, 10, 24), 1.3),
+                (datetime(2023, 11, 12), 1.3)
             ]
         },
         'kolkata': {
@@ -133,19 +145,19 @@ def main():
                 (5, 'Metronidazole', 'Antiprotozoal', 'tablets', 35)
             ],
             'pandemic_periods': [
-                (datetime(2020, 5, 1), datetime(2020, 9, 30), 3.5),   # First COVID wave
-                (datetime(2021, 5, 1), datetime(2021, 7, 31), 3.0),   # Second wave
-                (datetime(2023, 6, 1), datetime(2023, 8, 31), 1.8)    # Recent outbreak
+                (datetime(2020, 5, 1), datetime(2020, 9, 30), 2.0),
+                (datetime(2021, 5, 1), datetime(2021, 7, 31), 1.8),
+                (datetime(2023, 6, 1), datetime(2023, 8, 31), 1.5)
             ],
             'seasonal_factors': {
-                'Loperamide': [1.0, 1.0, 1.1, 1.2, 1.5, 2.0, 2.0, 1.8, 1.5, 1.2, 1.0, 1.0],  # Higher in monsoon
-                'default': [1.0, 1.0, 1.1, 1.1, 1.2, 1.3, 1.3, 1.2, 1.1, 1.0, 1.0, 1.0]
+                'Loperamide': [1.0, 1.0, 1.1, 1.2, 1.3, 1.5, 1.5, 1.4, 1.3, 1.2, 1.0, 1.0],
+                'default': [1.0, 1.0, 1.1, 1.1, 1.2, 1.2, 1.2, 1.1, 1.1, 1.0, 1.0, 1.0]
             },
             'special_events': [
-                (datetime(2020, 10, 23), 1.6),  # Durga Puja
-                (datetime(2021, 10, 11), 1.6),  # Durga Puja
-                (datetime(2022, 10, 1), 1.6),   # Durga Puja
-                (datetime(2023, 10, 20), 1.6),  # Durga Puja
+                (datetime(2020, 10, 23), 1.3),
+                (datetime(2021, 10, 11), 1.3),
+                (datetime(2022, 10, 1), 1.3),
+                (datetime(2023, 10, 20), 1.3)
             ]
         }
     }
@@ -157,7 +169,12 @@ def main():
         conn = create_connection(f'medismart_{region}')
         cur = conn.cursor()
         
+        # Clean existing data
+        print(f"Cleaning existing data in {region} database...")
+        clean_database(conn, cur)
+        
         # Process medicines
+        print("Inserting new data...")
         medicines_data = [(id, name, category, unit) for id, name, category, unit, _ in config['medicines']]
         execute_values(cur, 
             "INSERT INTO medicines (medicine_id, name, category, unit) VALUES %s",

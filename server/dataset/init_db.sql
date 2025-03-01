@@ -1,3 +1,7 @@
+-- Drop existing databases if they exist
+DROP DATABASE IF EXISTS medismart_delhi;
+DROP DATABASE IF EXISTS medismart_kolkata;
+
 -- Create the databases
 CREATE DATABASE medismart_delhi;
 CREATE DATABASE medismart_kolkata;
