@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Prediction } from '../types';
 
 // Base URL for the API
 const API_BASE_URL = 'http://localhost:5000';
@@ -52,9 +53,14 @@ export const fetchUsageHistory = async () => {
   }
 };
 
-export const fetchPredictions = async () => {
+export const fetchPredictions = async (
+  medicineId: number,
+  region: string
+): Promise<Prediction[]> => {
   try {
-    const response = await api.get('/predictions');
+    const response = await axios.get(
+      `/api/predictions/${medicineId}?region=${region}`
+    );
     return response.data;
   } catch (error) {
     console.error('Error fetching predictions:', error);

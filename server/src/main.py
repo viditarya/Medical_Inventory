@@ -7,6 +7,7 @@ from datetime import timedelta
 from typing import List
 import os
 from dotenv import load_dotenv
+from .utils.scheduler import setup_model_retraining_schedule
 
 load_dotenv()
 
@@ -27,6 +28,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.on_event("startup")
+async def startup_event():
+    setup_model_retraining_schedule()
 
 # Auth endpoints
 @app.post("/token", response_model=schemas.Token)

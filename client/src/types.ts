@@ -26,11 +26,11 @@ export interface UsageHistory {
 
 // Prediction type
 export interface Prediction {
-  prediction_id: number;
   medicine_id: number;
+  region: string;
+  date: string;
   predicted_demand: number;
-  period: string;
-  created_at: string;
+  confidence_interval: number;
 }
 
 // User type

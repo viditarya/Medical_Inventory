@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { fetchMedicines, fetchBatches, fetchPredictions } from '../../utils/api';
 import { calculateTotalStock, getNextPrediction, generateAlertMessage } from '../../utils/helpers';
 import { Medicine, Batch, Prediction, DashboardData } from '../../types';
-import { AlertCircle, ArrowRight } from 'lucide-react';
+import { AlertCircle, ArrowRight, TrendingUp } from 'lucide-react';
 import LoadingState from '../common/LoadingState';
 import ErrorState from '../common/ErrorState';
+import PredictionChart from './PredictionChart';
 import ChatbotPlaceholder from '../common/ChatbotPlaceholder';
 import { Link } from 'react-router-dom';
 
@@ -15,6 +16,9 @@ const ManagerDashboard: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
   const [dashboardData, setDashboardData] = useState<DashboardData[]>([]);
+  const [selectedMedicine, setSelectedMedicine] = useState<Medicine | null>(null);
+  const [medicineSpecificPredictions, setMedicineSpecificPredictions] = useState<Prediction[]>([]);
+  const [loadingPredictions, setLoadingPredictions] = useState<boolean>(false);
 
   // Mock threshold data (in a real app, this would come from the API)
   const thresholds = [
@@ -25,80 +29,61 @@ const ManagerDashboard: React.FC = () => {
     { medicine_id: 5, reorder_level: 30 },
   ];
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        
-        // Mock medicines data
-        const medicinesData: Medicine[] = [
-          { medicine_id: 1, name: 'Paracetamol', category: 'Pain Relief', unit: 'Tablet' },
-          { medicine_id: 2, name: 'Amoxicillin', category: 'Antibiotic', unit: 'Capsule' },
-          { medicine_id: 3, name: 'Ibuprofen', category: 'Anti-inflammatory', unit: 'Tablet' },
-          { medicine_id: 4, name: 'Omeprazole', category: 'Antacid', unit: 'Capsule' },
-          { medicine_id: 5, name: 'Metformin', category: 'Antidiabetic', unit: 'Tablet' },
-        ];
-        
-        // Mock batches data
-        const batchesData: Batch[] = [
-          { batch_id: 1, medicine_id: 1, quantity: 200, expiry_date: '2025-12-01', qr_code: 'QR-0001-1' },
-          { batch_id: 2, medicine_id: 1, quantity: 150, expiry_date: '2025-06-15', qr_code: 'QR-0001-2' },
-          { batch_id: 3, medicine_id: 2, quantity: 30, expiry_date: '2025-08-20', qr_code: 'QR-0002-1' },
-          { batch_id: 4, medicine_id: 3, quantity: 80, expiry_date: '2025-10-10', qr_code: 'QR-0003-1' },
-          { batch_id: 5, medicine_id: 4, quantity: 100, expiry_date: '2025-07-05', qr_code: 'QR-0004-1' },
-          { batch_id: 6, medicine_id: 5, quantity: 20, expiry_date: '2025-05-30', qr_code: 'QR-0005-1' },
-          { batch_id: 7, medicine_id: 2, quantity: 10, expiry_date: '2023-06-01', qr_code: 'QR-0002-2' }, // Near expiry
-        ];
-        
-        // Mock predictions data
-        const predictionsData: Prediction[] = [
-          { prediction_id: 1, medicine_id: 1, predicted_demand: 300, period: '2023-Q2', created_at: '2023-04-01' },
-          { prediction_id: 2, medicine_id: 2, predicted_demand: 100, period: '2023-Q2', created_at: '2023-04-01' },
-          { prediction_id: 3, medicine_id: 3, predicted_demand: 150, period: '2023-Q2', created_at: '2023-04-01' },
-          { prediction_id: 4, medicine_id: 4, predicted_demand: 200, period: '2023-Q2', created_at: '2023-04-01' },
-          { prediction_id: 5, medicine_id: 5, predicted_demand: 50, period: '2023-Q2', created_at: '2023-04-01' },
-        ];
-        
-        setMedicines(medicinesData);
-        setBatches(batchesData);
-        setPredictions(predictionsData);
-        
-        // Process data for dashboard
-        const dashboardItems = medicinesData.map(medicine => {
-          const totalStock = calculateTotalStock(medicine.medicine_id, batchesData);
-          const nextPrediction = getNextPrediction(medicine.medicine_id, predictionsData);
-          const threshold = thresholds.find(t => t.medicine_id === medicine.medicine_id)?.reorder_level || 0;
-          const alerts = generateAlertMessage(totalStock, threshold, batchesData, medicine.medicine_id);
-          
-          return {
-            medicine_id: medicine.medicine_id,
-            name: medicine.name,
-            totalStock,
-            nextPrediction,
-            alerts
-          };
-        });
-        
-        setDashboardData(dashboardItems);
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching dashboard data:', err);
-        setError('Failed to fetch dashboard data. Please try again later.');
-        setLoading(false);
-      }
-    };
+  // Default region - in a real app, this would come from user settings or context
+  const DEFAULT_REGION = 'central';
 
-    fetchData();
+  useEffect(() => {
+    fetchDashboardData();
   }, []);
 
-  const handleRetry = () => {
-    setLoading(true);
-    setError('');
-    // Re-fetch data
-    // In a real app, this would call the fetchData function again
-    setTimeout(() => {
+  const fetchDashboardData = async () => {
+    try {
+      setLoading(true);
+      const [medicinesData, batchesData, predictionsData] = await Promise.all([
+        fetchMedicines(),
+        fetchBatches(),
+        fetchPredictions(1, DEFAULT_REGION), // Initial predictions for first medicine
+      ]);
+
+      setMedicines(medicinesData);
+      setBatches(batchesData);
+      setPredictions(predictionsData);
+
+      const dashboardItems = medicinesData.map(medicine => {
+        const totalStock = calculateTotalStock(medicine.medicine_id, batchesData);
+        const nextPrediction = getNextPrediction(medicine.medicine_id, predictionsData);
+        const threshold = thresholds.find(t => t.medicine_id === medicine.medicine_id)?.reorder_level || 0;
+        const alerts = generateAlertMessage(totalStock, threshold, batchesData, medicine.medicine_id);
+
+        return {
+          medicine_id: medicine.medicine_id,
+          name: medicine.name,
+          totalStock,
+          nextPrediction,
+          alerts
+        };
+      });
+
+      setDashboardData(dashboardItems);
       setLoading(false);
-    }, 1000);
+    } catch (err) {
+      console.error('Error fetching dashboard data:', err);
+      setError('Failed to fetch dashboard data. Please try again later.');
+      setLoading(false);
+    }
+  };
+
+  const handleMedicineSelect = async (medicine: Medicine) => {
+    try {
+      setSelectedMedicine(medicine);
+      setLoadingPredictions(true);
+      const predictions = await fetchPredictions(medicine.medicine_id, DEFAULT_REGION);
+      setMedicineSpecificPredictions(predictions);
+    } catch (err) {
+      console.error('Error fetching predictions:', err);
+    } finally {
+      setLoadingPredictions(false);
+    }
   };
 
   if (loading) {
@@ -106,86 +91,112 @@ const ManagerDashboard: React.FC = () => {
   }
 
   if (error) {
-    return <ErrorState message={error} onRetry={handleRetry} />;
+    return <ErrorState message={error} onRetry={fetchDashboardData} />;
   }
 
   return (
     <div>
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-800">Inventory Manager Dashboard</h1>
-        <p className="text-gray-600">Overview of medicine inventory and alerts</p>
+        <p className="text-gray-600">Overview of medicine inventory and predictions</p>
       </div>
-      
-      <div className="bg-white rounded-lg shadow-sm p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold text-gray-700">Medicine Inventory Status</h2>
-          <div className="flex space-x-4">
-            <Link 
-              to="/inventory" 
-              className="flex items-center text-blue-600 hover:text-blue-800"
-            >
-              View Inventory
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-            <Link 
-              to="/predictions" 
-              className="flex items-center text-blue-600 hover:text-blue-800"
-            >
-              View Predictions
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Inventory Status Table */}
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-semibold text-gray-700">Medicine Inventory Status</h2>
+            <div className="flex space-x-4">
+              <Link to="/inventory" className="flex items-center text-blue-600 hover:text-blue-800">
+                View Inventory
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Medicine Name
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Total Stock
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Alerts
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {dashboardData.map((item) => (
+                  <tr 
+                    key={item.medicine_id}
+                    className="hover:bg-gray-50 cursor-pointer"
+                    onClick={() => handleMedicineSelect(medicines.find(m => m.medicine_id === item.medicine_id)!)}
+                  >
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {item.name}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {item.totalStock}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {item.alerts ? (
+                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                          <AlertCircle className="h-4 w-4 mr-1" />
+                          {item.alerts}
+                        </span>
+                      ) : (
+                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                          Normal
+                        </span>
+                      )}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <button
+                        className="text-blue-600 hover:text-blue-800 flex items-center"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleMedicineSelect(medicines.find(m => m.medicine_id === item.medicine_id)!);
+                        }}
+                      >
+                        <TrendingUp className="h-4 w-4 mr-1" />
+                        View Predictions
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
-        
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Medicine Name
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Total Stock
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Next Prediction
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Alerts
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {dashboardData.map((item) => (
-                <tr key={item.medicine_id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    {item.name}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {item.totalStock}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {item.nextPrediction ? `${item.nextPrediction.predicted_demand} (${item.nextPrediction.period})` : 'No prediction'}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    {item.alerts ? (
-                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                        <AlertCircle className="h-4 w-4 mr-1" />
-                        {item.alerts}
-                      </span>
-                    ) : (
-                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        Normal
-                      </span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+        {/* Predictions Chart */}
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          {selectedMedicine ? (
+            loadingPredictions ? (
+              <div className="h-[400px] flex items-center justify-center">
+                <LoadingState />
+              </div>
+            ) : (
+              <PredictionChart
+                predictions={medicineSpecificPredictions}
+                medicineName={selectedMedicine.name}
+              />
+            )
+          ) : (
+            <div className="h-[400px] flex items-center justify-center text-gray-500">
+              Select a medicine to view predictions
+            </div>
+          )}
         </div>
       </div>
-      
+
       <ChatbotPlaceholder />
     </div>
   );
